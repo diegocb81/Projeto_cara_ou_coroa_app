@@ -3,11 +3,14 @@ package com.cursoandroid.projeto_cara_ou_coroa_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class ResultadoActivity extends AppCompatActivity {
 
     private ImageView imageResultado;
+    private Button buttonVoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +18,7 @@ public class ResultadoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_resultado);
 
         imageResultado = findViewById(R.id.imageResultado);
+        buttonVoltar = findViewById(R.id.buttonVoltar);
 
         //Recuperar dados
         Bundle dados = getIntent().getExtras();
@@ -25,5 +29,12 @@ public class ResultadoActivity extends AppCompatActivity {
         }else {//coroa
             imageResultado.setImageResource(R.drawable.moeda_coroa);
         }
+
+        buttonVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
